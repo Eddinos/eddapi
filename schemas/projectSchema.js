@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema, GraphQLArray } = require('graphql/type')
+const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema } = require('graphql/type')
 const { projectModel } = require('../models')
 
 const projectType = new GraphQLObjectType({
@@ -63,11 +63,9 @@ const projectQuery = new GraphQLObjectType({
             type: projectType,
             args: {
                 id: {
-                    name: 'id',
                     type: GraphQLInt
                 },
                 title: {
-                    name: 'title',
                     type: GraphQLString
                 }
             },

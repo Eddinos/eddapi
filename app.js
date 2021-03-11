@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
-const PORT = process.env.PORT || 8888
+const PORT = process.env.PORT || 9999
 const routes = require('./routes')
 
 const uri =  'mongodb://localhost:27017/'

@@ -1,9 +1,13 @@
-const { mergeSchemas } = require('@graphql-tools/merge');
+const { stitchSchemas } = require('@graphql-tools/stitch');
 const projectSchema = require('./projectSchema')
+const skillSchema = require('./skillSchema')
+const experienceSchema = require('./experienceSchema')
 
-const merged = mergeSchemas({
-    schemas: [
-        projectSchema
+const merged = stitchSchemas({
+    subschemas: [
+        projectSchema,
+        skillSchema,
+        experienceSchema
     ]
 })
 
