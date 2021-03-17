@@ -2,6 +2,7 @@ const express = require('express')
 const routes = express.Router()
 const { graphql } = require('graphql')
 const { graphqlHTTP } = require('express-graphql')
+const { mailController } = require('../controllers')
 
 const schema = require('../schemas')
 
@@ -15,6 +16,8 @@ routes.use('/graphql', graphqlHTTP(req => {
         graphiql: true
     }
 }))
+
+routes.post('/contactus', mailController)
 
 routes.get('*', function(req, res){
     res.status(404).send('You\'ve met with a terrible fate, haven\'t you ?');
