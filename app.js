@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const PORT = process.env.PORT || 9999
 const routes = require('./routes')
 
-const uri =  'mongodb://localhost:27017/'
+const uri =  process.env.PROD_MONGODB || 'mongodb://localhost:27017/'
 mongoose.connect(uri)
 
 const app = express()
