@@ -17,6 +17,9 @@ const projectSchema = new mongoose.Schema({
           type: String,
           required: true
     },
+    longDescription: {
+        type: String
+  },
     technos: {
       type: Array
     },

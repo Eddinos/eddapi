@@ -17,6 +17,9 @@ const projectType = new GraphQLObjectType({
             shortDescription: {
                 type: GraphQLString
             },
+            longDescription: {
+                type: GraphQLString
+            },
             technos: {
                 type: GraphQLList(GraphQLString)
             },
