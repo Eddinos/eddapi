@@ -31,6 +31,9 @@ const projectSchema = new mongoose.Schema({
     },
     url: {
         type: String
+    },
+    archived: {
+      type: Boolean
     }
   })
 

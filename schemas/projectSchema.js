@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema } = require('graphql/type')
+const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema, GraphQLBoolean } = require('graphql/type')
 const { projectModel } = require('../models')
 
 const projectType = new GraphQLObjectType({
@@ -47,6 +47,9 @@ const projectType = new GraphQLObjectType({
                     }
                     return [url]
                 }
+            },
+            archived: {
+                type: GraphQLBoolean
             }
         }
     }
@@ -58,8 +61,8 @@ const projectQuery = new GraphQLObjectType({
         projects: {
             type: new GraphQLList(projectType),
             async resolve () {
-                return await projectModel.find({})
-
+                const rawProjects = await projectModel.find({})
+                return rawProjects.filter(project => !project.archived)
             }
         },
         project: {
