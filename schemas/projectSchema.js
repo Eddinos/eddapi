@@ -31,22 +31,10 @@ const projectType = new GraphQLObjectType({
                 }
             },
             sourceCode: {
-                type: GraphQLString,
-                resolve ({ sourceCode, title }) {
-                    if (!sourceCode) {
-                        return `Unfortunately, the source code for ${title} is not available`
-                    }
-                    return sourceCode
-                }
+                type: GraphQLString
             },
             url: {
-                type: GraphQLList(GraphQLString),
-                resolve ({ url, title }) {
-                    if (!url) {
-                        return [`Unfortunately, this gem is not deployed on the world wide web`]
-                    }
-                    return [url]
-                }
+                type: GraphQLString
             },
             archived: {
                 type: GraphQLBoolean
